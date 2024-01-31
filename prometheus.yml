@@ -7,7 +7,7 @@ scrape_configs:
     metrics_path: /monitoring/metrics
     # Add the api key to the GET params.
     params:
-      api_key: ['eskqXYQVdCMuGdZDmCR9ge3YbP5Qyj']
+      api_key: ['TRACKING_SERVICE_API_KEY']
     static_configs:
       - targets: ['staging-tracking-service:8000']
   - job_name: 'staging-predictor-nginx'
@@ -32,6 +32,6 @@ scrape_configs:
     metrics_path: /crashReports/metrics
     # Add the api key to the GET params.
     params:
-      api_key: ['UgkEz2amwvux6q']
+      api_key: ['BIKER_SWARM_MONITOR_API_KEY']
     static_configs:
       - targets: ['staging-biker-swarm-monitor:8000']
