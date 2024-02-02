@@ -3,35 +3,35 @@ global:
   evaluation_interval: '60s'
 
 scrape_configs:
-  - job_name: 'staging-tracking-service'
+  - job_name: 'tracking-service'
     metrics_path: /monitoring/metrics
     # Add the api key to the GET params.
     params:
       api_key: ['TRACKING_SERVICE_API_KEY']
     static_configs:
-      - targets: ['staging-tracking-service:8000']
-  - job_name: 'staging-predictor-nginx'
+      - targets: ['tracking-service:8000']
+  - job_name: 'predictor-nginx'
     metrics_path: /metrics.txt
     static_configs:
-      - targets: ['staging-predictor-nginx:80']
-  - job_name: 'staging-stack-monitor-nginx'
+      - targets: ['predictor-nginx:80']
+  - job_name: 'stack-monitor-nginx'
     metrics_path: /metrics.txt
     static_configs:
       - targets: ['stack-monitor-nginx:80']
-  - job_name: 'staging-prediction-service'
+  - job_name: 'prediction-service'
     static_configs:
       - targets: ['prediction-service:8000']
-  - job_name: 'staging-prediction-monitor-nginx'
+  - job_name: 'prediction-monitor-nginx'
     metrics_path: /metrics.txt
     static_configs:
       - targets: ['prediction-monitor-nginx:80']
   - job_name: 'node' # 'node' is Required by dashboard
     static_configs:
       - targets: ['node-exporter:9100']
-  - job_name: 'staging-biker-swarm-monitor'
+  - job_name: 'biker-swarm-monitor'
     metrics_path: /crashReports/metrics
     # Add the api key to the GET params.
     params:
       api_key: ['BIKER_SWARM_MONITOR_API_KEY']
     static_configs:
-      - targets: ['staging-biker-swarm-monitor:8000']
+      - targets: ['biker-swarm-monitor:8000']
