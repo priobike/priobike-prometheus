@@ -4,10 +4,7 @@ COPY prometheus.yml /etc/prometheus/prometheus.yml
 
 COPY start_prometheus.sh /usr/local/bin/start_prometheus.sh
 
-# Install sed (used to set API Keys)
-# RUN apt-get update && apt-get install -y sed
-
-# Set permissions
+# Set permissions (required to set the API keys in the prometheus.yml file dynamically)
 USER root
 RUN chmod +x /usr/local/bin/start_prometheus.sh
 RUN chmod 777 /etc/prometheus/prometheus.yml
