@@ -7,7 +7,7 @@ scrape_configs:
     metrics_path: /monitoring/metrics
     # Add the api key to the GET params.
     params:
-      api_key: ['TRACKING_SERVICE_API_KEY']
+      api_key: ['']
     static_configs:
       - targets: ['tracking-service:8000']
   - job_name: 'predictor-nginx'
@@ -32,6 +32,6 @@ scrape_configs:
     metrics_path: /crashReports/metrics
     # Add the api key to the GET params.
     params:
-      api_key: ['BIKER_SWARM_MONITOR_API_KEY']
+      api_key: ['']
     static_configs:
       - targets: ['biker-swarm-monitor:8000']
