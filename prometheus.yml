@@ -35,3 +35,10 @@ scrape_configs:
       api_key: ['BIKER_SWARM_MONITOR_API_KEY']
     static_configs:
       - targets: ['staging-biker-swarm-monitor:8000']
+  - job_name: 'staging-load-service'
+    metrics_path: /monitoring/metrics
+    # Add the api key to the GET params.
+    params:
+      api_key: ['LOAD_SERVICE_API_KEY']
+    static_configs:
+      - targets: ['staging-load-service:8000']
