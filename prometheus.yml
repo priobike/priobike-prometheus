@@ -42,3 +42,7 @@ scrape_configs:
       api_key: ['LOAD_SERVICE_API_KEY']
     static_configs:
       - targets: ['staging-load-service:8000']
+  - job_name: 'traefik-metrics'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['traefik:8080']
