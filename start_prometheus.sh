@@ -8,4 +8,4 @@ PROMETHEUS_CONFIG_UPDATED=$(echo "${PROMETHEUS_CONFIG_UPDATED/LOAD_SERVICE_API_K
 # Write updated config to /etc/prometheus/prometheus.yml
 echo "$PROMETHEUS_CONFIG_UPDATED" > /etc/prometheus/prometheus.yml
 
-/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus --storage.tsdb.retention.time=1y
+/bin/prometheus --log.level=debug --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus --storage.tsdb.retention.time=1y
