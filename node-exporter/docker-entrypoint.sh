@@ -6,4 +6,4 @@ echo "node_meta{node_id=\"$NODE_ID\", container_label_com_docker_swarm_node_id=\
 
 set -- /bin/node_exporter "$@"
 
-exec "$@
+exec "$@"
