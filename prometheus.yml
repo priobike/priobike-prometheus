@@ -40,9 +40,9 @@ scrape_configs:
     metrics_path: '/metrics'
     static_configs:
       - targets: ['traefik:8080']
-  - job_name: 'node' # 'node' is Required by dashboard
+  - job_name: 'node-exporter'
     dns_sd_configs:
-      - names:
-          - 'node-exporter'
-        type: 'A'
-        port: 9100
+    - names:
+      - 'tasks.node-exporter'
+      type: 'A'
+      port: 9100
