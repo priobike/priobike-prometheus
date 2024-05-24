@@ -1,4 +1,4 @@
-FROM prom/prometheus:v2.32.1
+FROM prom/prometheus:v2.45.0
 
 COPY prometheus.yml /etc/prometheus/prometheus.yml
 COPY rules/swarm_node.rules.yml /etc/prometheus/swarm_node.rules.yml
