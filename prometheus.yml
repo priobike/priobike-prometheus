@@ -32,7 +32,7 @@ scrape_configs:
     static_configs:
       - targets: ['prediction-monitor-nginx:80']
   - job_name: 'load-service'
-    metrics_path: /monitoring/metrics.txt
+    metrics_path: /metrics.txt
     static_configs:
       - targets: ['load-service-manager:80']
   - job_name: 'traefik-metrics'
