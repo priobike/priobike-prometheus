@@ -38,7 +38,7 @@ scrape_configs:
   - job_name: 'staging-load-service'
     metrics_path: /metrics.txt
     static_configs:
-      - targets: ['load-service-manager:8000']
+      - targets: ['load-service-manager:80']
   - job_name: 'traefik-metrics'
     metrics_path: '/metrics'
     static_configs:
