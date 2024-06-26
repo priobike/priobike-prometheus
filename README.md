@@ -1,6 +1,6 @@
 # ⚠️ Don't merge `main`/`stable`/`release` branch ⚠️
 
-Similiar to our [priobike-deploylment-docker](https://github.com/priobike/priobike-deployment-docker) repo, those branches include deployment specific differences and are divering on purpose.
+Similiar to our [priobike-deploylment-docker](https://github.com/priobike/priobike-deployment-docker) repo, those branches include deployment specific differences and are diverging on purpose.
 
 # Prometheus
 
