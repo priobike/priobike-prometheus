@@ -14,6 +14,37 @@ We use this repository to build our own prometheus image with our configuration 
 
 Similar to our [priobike-deployment-docker](https://github.com/priobike/priobike-deployment-docker) repo, those branches include deployment specific differences and are diverging on purpose.
 
+## Example node exporter deployment
+
+```yml
+node-exporter:
+  image: bikenow.vkw.tu-dresden.de/priobike/priobike-prometheus-node-exporter:main
+  environment:
+    - NODE_ID={{.Node.ID}}
+  volumes:
+    - /proc:/host/proc:ro
+    - /sys:/host/sys:ro
+    - /:/rootfs:ro
+    - /etc/hostname:/etc/nodename
+  command:
+    - '--path.sysfs=/host/sys'
+    - '--path.procfs=/host/proc'
+    ########################################################################
+    # The "docker-entrypoint.sh" script creates a file with 
+    # the custom metric "note_meta" to the "/tmp/node-exporter/" directory.
+    # See: https://github.com/prometheus/node_exporter#textfile-collector
+    ########################################################################
+    - '--collector.textfile.directory=/tmp/node-exporter/'
+    - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc|tmp)($$|/)'
+    - '--no-collector.ipvs'
+  deploy:
+    # Deploy 1 instance on each node
+    mode: global
+    endpoint_mode: dnsrr
+    restart_policy:
+      condition: any
+```
+
 ## Contributing
 
 We highly encourage you to open an issue or a pull request. You can also use our repository freely with the `MIT` license. 
